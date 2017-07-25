@@ -1,0 +1,31 @@
+.nav-style{
+    margin: 20px 20px 0 20px;
+}
+#addstudentinfo{
+    margin: 40px 60px;
+}
+#addstudentinfo li span{
+    margin-left: 90px;
+}
+#addstudentinfo li{
+    text-align: center;
+}
+#printstudentinfo{
+    margin: 40px 60px;
+}
+#printstudentinfo li span{
+    margin-left: 20px;
+}
+
+.list-group-item span{
+    float: left;
+    line-height: 32px;
+}
+.studentinfo{
+    width: 11%;
+    float: left;
+}
+.input-id{
+    width: 20%;
+    display: inline;
+}
