@@ -14,14 +14,16 @@ function printStudentId() {
 }
 
 document.getElementById('studentIdsub').addEventListener("click",function () {
-
+    $('.printstudentto').remove();
     if(printStudentId() === true){
         let studentId = document.myform2.studentId.value.split(",");
         console.log(studentId)
         for(let i = 0;i<studentId.length;i++){
             for(let key in localStorage){
                 if(studentId[i] == key){
+
                     let list = document.createElement("tr");
+                    list.setAttribute("class","printstudentto");
                     let item1 = document.createElement("td");
                     let item2 = document.createElement("td");
                     let item3 = document.createElement("td");
@@ -59,7 +61,7 @@ document.getElementById('studentIdsub').addEventListener("click",function () {
             }
         }
     }
-    // event.preventDefault();
+    event.preventDefault();
 },false);
 
 module.exports = {

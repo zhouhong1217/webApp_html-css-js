@@ -16,7 +16,9 @@
 #printstudentinfo li span{
     margin-left: 20px;
 }
-
+#checkstudent{
+    margin: 40px 60px;
+}
 .list-group-item span{
     float: left;
     line-height: 32px;

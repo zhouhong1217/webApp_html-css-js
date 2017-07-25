@@ -15,26 +15,27 @@
     <ul class="nav nav-pills nav-style">
         <li role="presentation"><a href="#" onclick="toAddStudentForm()">添加学生信息</a></li>
         <li role="presentation"><a href="#" onclick="toPrintStudentForm()">查看学生信息</a></li>
+        <li role="presentation"><a href="#" onclick="toCheckStudentForm()">修改删除学生信息</a></li>
     </ul>
 </div>
 <div id="addstudentinfo">
-    <form name="myform1" action="webIndex.html" onsubmit="return judgeStudentInfo()">
+    <form name="myform1" action="#" onsubmit="return judgeStudentInfo()">
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">请输入学生信息：</div>
             <!-- List group -->
             <ul class="list-group">
                 <li class="list-group-item" style="height: 50px">
-                    <span>姓名：</span><input type="text" class="form-control studentinfo" name="studentName">
-                    <span>学号：</span><input type="text" class="form-control studentinfo" name="studentId">
-                    <span>民族：</span><input type="text" class="form-control studentinfo" name="studentNative">
-                    <span>班级：</span><input type="text" class="form-control studentinfo" name="studentClass">
+                    <span>姓名：</span><input type="text" class="form-control studentinfo" name="studentName" required>
+                    <span>学号：</span><input type="text" class="form-control studentinfo" name="studentId" required>
+                    <span>民族：</span><input type="text" class="form-control studentinfo" name="studentNative" required>
+                    <span>班级：</span><input type="text" class="form-control studentinfo" name="studentClass" required>
                 </li>
                 <li class="list-group-item" style="height: 50px">
-                    <span>数学：</span><input type="text" class="form-control studentinfo" name="studentMath">
-                    <span>语文：</span><input type="text" class="form-control studentinfo" name="studentChinese">
-                    <span>英语：</span><input type="text" class="form-control studentinfo" name="studentEnglish">
-                    <span>编程：</span><input type="text" class="form-control studentinfo" name="studentProgram">
+                    <span>数学：</span><input type="number" class="form-control studentinfo" name="studentMath" required>
+                    <span>语文：</span><input type="number" class="form-control studentinfo" name="studentChinese" required>
+                    <span>英语：</span><input type="number" class="form-control studentinfo" name="studentEnglish" required>
+                    <span>编程：</span><input type="number" class="form-control studentinfo" name="studentProgram" required>
                 </li>
                 <li class="list-group-item" id="hiddenslogan" style="height: 50px;display: none"></li>
                 <li class="list-group-item" style="height: 50px">
@@ -63,26 +64,49 @@
 
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">学生信息：</div>
+        <div class="panel-heading">查询学生信息：</div>
 
         <!-- Table -->
-        <table class="table" style="text-align: center" id="printstudent">
-            <tr>
-                <td>姓名</td>
-                <td>学号</td>
-                <td>民族</td>
-                <td>班级</td>
-                <td>数学</td>
-                <td>语文</td>
-                <td>英语</td>
-                <td>编程</td>
-                <td>总分</td>
-            </tr>
-            <tr></tr>
+        <table class="table" style="text-align: center">
+            <tbody id="printstudent">
+                <tr>
+                    <td>姓名</td>
+                    <td>学号</td>
+                    <td>民族</td>
+                    <td>班级</td>
+                    <td>数学</td>
+                    <td>语文</td>
+                    <td>英语</td>
+                    <td>编程</td>
+                    <td>总分</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
 
+<div id="checkstudent" class="panel panel-default" style="display: none">
+    <!-- Default panel contents -->
+    <div class="panel-heading">学生信息：</div>
+
+    <!-- Table -->
+    <table class="table" style="text-align: center;" >
+        <tbody id="allstudentinfo">
+        <tr>
+            <td>姓名</td>
+            <td>学号</td>
+            <td>民族</td>
+            <td>班级</td>
+            <td>数学</td>
+            <td>语文</td>
+            <td>英语</td>
+            <td>编程</td>
+            <td>总分</td>
+            <td>修改/删除</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
