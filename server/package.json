@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "merge-descriptors": "^1.0.1"
+  },
+  "devDependencies": {
+    "merge-descriptors": "^1.0.1"
+  }
+}

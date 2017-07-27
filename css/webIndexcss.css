@@ -17,7 +17,7 @@
     margin-left: 20px;
 }
 #checkstudent{
-    margin: 40px 60px;
+    margin: 40px 0;
 }
 .list-group-item span{
     float: left;
@@ -30,4 +30,8 @@
 .input-id{
     width: 20%;
     display: inline;
+}
+
+td{
+    vertical-align:middle!important;
 }

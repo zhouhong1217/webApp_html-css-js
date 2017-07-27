@@ -13,57 +13,47 @@ function printStudentId() {
     }
 }
 
-document.getElementById('studentIdsub').addEventListener("click",function () {
+document.getElementById('studentIdsub').addEventListener("click",function (event) {
     $('.printstudentto').remove();
     if(printStudentId() === true){
         let studentId = document.myform2.studentId.value.split(",");
         console.log(studentId)
+        let arr = [];
         for(let i = 0;i<studentId.length;i++){
-            for(let key in localStorage){
-                if(studentId[i] == key){
+            if(Object.keys(localStorage).indexOf(studentId[i])===-1){
+                arr.push(studentId[i]);
+            }else {
+                for(let key in localStorage){
+                    if(studentId[i] === key){
+                        let student = JSON.parse(localStorage[key]);
+                        // console.log(student)
+                        let html = `<tr class="printstudentto">
+<td>${student[0]}</td>
+<td>${student[1]}</td>
+<td>${student[2]}</td>
+<td>${student[3]}</td>
+<td>${student[4]}</td>
+<td>${student[5]}</td>
+<td>${student[6]}</td>
+<td>${student[7]}</td>
+<td>${student[8]}</td>
+</tr>`;
 
-                    let list = document.createElement("tr");
-                    list.setAttribute("class","printstudentto");
-                    let item1 = document.createElement("td");
-                    let item2 = document.createElement("td");
-                    let item3 = document.createElement("td");
-                    let item4 = document.createElement("td");
-                    let item5 = document.createElement("td");
-                    let item6 = document.createElement("td");
-                    let item7 = document.createElement("td");
-                    let item8 = document.createElement("td");
-                    let item9 = document.createElement("td");
-
-                    let student = JSON.parse(localStorage[key]);
-                    // console.log(student)
-
-                    item1.innerHTML = `${student[0]}`;
-                    item2.innerHTML = `${student[1]}`;
-                    item3.innerHTML = `${student[2]}`;
-                    item4.innerHTML = `${student[3]}`;
-                    item5.innerHTML = `${student[4]}`;
-                    item6.innerHTML = `${student[5]}`;
-                    item7.innerHTML = `${student[6]}`;
-                    item8.innerHTML = `${student[7]}`;
-                    item9.innerHTML = `${student[8]}`;
-                    let showList = document.getElementById('printstudent');
-                    list.appendChild(item9);
-                    list.insertBefore(item8,item9);
-                    list.insertBefore(item7,item8);
-                    list.insertBefore(item6,item7);
-                    list.insertBefore(item5,item6);
-                    list.insertBefore(item4,item5);
-                    list.insertBefore(item3,item4);
-                    list.insertBefore(item2,item3);
-                    list.insertBefore(item1,item2);
-                    showList.appendChild(list);
+                        let showList = document.getElementById('printstudent');
+                        showList.innerHTML += html;
+                    }
                 }
             }
+        }
+        if(arr.length !== 0){
+            let s = "";
+            for(let i = 0;i<arr.length;i++){
+                if(i>0) s+=',';
+                s += arr[i];
+            }
+            alert(s+" is not exist!");
         }
     }
     event.preventDefault();
 },false);
 
-module.exports = {
-    printStudentInfo
-};
